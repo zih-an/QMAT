@@ -1,0 +1,8 @@
+*.DS_Store*
+*.vscode/*
+*build*
+cmake-build-relwithdebinfo
+data/3d_triMeshes
+data/coverageAxis
+data/shapenet
+
