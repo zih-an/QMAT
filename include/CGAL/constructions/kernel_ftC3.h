@@ -549,6 +549,14 @@ circumcenterC3(const FT &px, const FT &py, const FT &pz,
                                   sx, sy, sz,
                                   num_x, num_y, num_z, den);
 
+  //zihan
+  const FT eps = FT(1e-12); 
+  if (CGAL::abs(den) < eps) {
+      x = (px + qx + rx + sx)/FT(4);
+      y = (py + qy + ry + sy)/FT(4);
+      z = (pz + qz + rz + sz)/FT(4);
+      return;
+  }
   CGAL_assertion( ! CGAL_NTS is_zero(den) );
   FT inv = FT(1)/(FT(2) * den);
 

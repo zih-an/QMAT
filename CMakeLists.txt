@@ -40,6 +40,8 @@ if(APPLE)
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
 elseif(WIN32)
     set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-O3")
+elseif(UNIX)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -fopenmp")
 endif()
 
 include_directories(include)
@@ -66,7 +68,7 @@ add_executable(QMAT
         main_main.cpp
 )
 
-target_link_libraries(QMAT OpenMP::OpenMP_CXX)
+# target_link_libraries(QMAT OpenMP::OpenMP_CXX)
 #find_package(CGAL REQUIRED)
 #find_package(Eigen3 CONFIG REQUIRED)
 #target_link_libraries(QMAT CGAL::CGAL Eigen3::Eigen OpenMP::OpenMP_CXX)
